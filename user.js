@@ -8,6 +8,10 @@ class User {
   read(txt) {
     return `${this.name} is reading ${txt}`;
   }
+
+  notify(post) {
+    return this.read(post.summary);
+  }
 }
 
 module.exports = User;

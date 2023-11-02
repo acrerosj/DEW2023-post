@@ -22,6 +22,18 @@ class Post {
       this.#subscribers.push(user);
     }
   }
+
+  detach(user) {
+    const index = this.#subscribers.indexOf(user);
+    if (index >= 0) {
+      this.#subscribers.splice(index, 1);
+    }
+  }
+
+  publish() {
+    this.#number += 1;
+    return this.#subscribers.map((s) => s.notify(this));
+  }
 }
 
 module.exports = Post;
